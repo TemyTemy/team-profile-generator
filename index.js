@@ -1,7 +1,7 @@
 const inquirer = require('inquirer');
 const Manager = require('./lib/Manager');
-// team manager’s name, employee ID, email address, and office number
-const questions = [{
+const teamMembers = [];
+const managerQuestions = [{
    type: 'input',
    name: 'managerName',
    message: 'Enter manager\'s name',
@@ -49,14 +49,90 @@ const questions = [{
         return true;
     }
  }];
+ const teamMemberQuestion = [{
+    type: 'list',
+    name: 'memberTypeChoice',
+    message: 'Do you want to enter an Engineer or an Intern',
+    choices: [{name: 'Intern'}, {name: 'Engineer'}]
+ },
+  {
+    type: 'input',
+    name: 'engineerName',
+    message: 'Enter Engineer\'s name',
+    when: function(option) {
+        return option['memberTypeChoice'] === 'Engineer'
+    }
+ },
+ {
+    type: 'input',
+    name: 'engineerId',
+    message: 'Enter Engineer\'s Id',
+    when: function(option) {
+        return option['memberTypeChoice'] === 'Engineer'
+    }
+ },
+ {
+    type: 'input',
+    name: 'engineerGithub',
+    message: 'Enter Engineer\'s Github user name',
+    when: function(option) {
+        return option['memberTypeChoice'] === 'Engineer'
+    }
+ },
+
+ //intern’s name, ID, email, and school
+ {
+    type: 'input',
+    name: 'internName',
+    message: 'Enter Intern\'s name',
+    when: function(option) {
+        return option['memberTypeChoice'] === 'Intern'
+    }
+ },
+ {
+    type: 'input',
+    name: 'internId',
+    message: 'Enter Intern Id',
+    when: function(option) {
+        return option['memberTypeChoice'] === 'Intern'
+    }
+ },
+ {
+    type: 'input',
+    name: 'internSchool',
+    message: 'Enter Intern\'s school',
+    when: function(option) {
+        return option['memberTypeChoice'] === 'Intern'
+    }
+ },
+ {
+    type: 'confirm',
+    name: 'confirmContinue',
+    message: 'Want to enter another team member (just press enter for YES)?',
+    default: true,
+  }
+];
 
  function processManagerAnswers(answers) {
-    // var manager = new Manager(answers['managerName'], answers['employeeId'],
-    //                           answers['emailAddress'], answers['officeNumber']);
-    //console.log(manager);
+    var manager = new Manager(answers['managerName'], answers['employeeId'],
+                              answers['emailAddress'], answers['officeNumber']);
+
+    addTeamMembers();
  }
 
- inquirer.prompt(questions)
+ function addTeamMembers() {
+    inquirer.prompt(teamMemberQuestion)
+    .then((ans) => {
+        teamMembers.push(ans);
+        if (ans['confirmContinue']) {            
+            addTeamMembers();
+        } else {
+            console.log(teamMembers);
+        }
+    });
+ }
+
+ inquirer.prompt(managerQuestions)
          .then((answers) => processManagerAnswers(answers))
          .catch((error) => {
             console.log(error);
