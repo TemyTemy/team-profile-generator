@@ -9,10 +9,9 @@ h1 {
 
 .card {
     display: flex;
-    flex-direction: column;
-    width: 20%;
-    margin-left: auto;
-    margin-right: auto;
+    flex-direction: column;  
+    margin-right: 10px;
+    margin-left: 10px;
     background-color: #f6f7f9;
 }
 
@@ -39,5 +38,7 @@ ul {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center; 
+    margin-left: auto;
+    margin-right: auto;
 
 }
