@@ -84,7 +84,7 @@ function makeEmployeeHtml(employee) {
             <div class="card-body">
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">ID: ${employee.getId()}</li>
-                    <li class="list-group-item">Email: ${employee.getEmail()}</li>
+                    <li class="list-group-item">Email: <a href='mailto:${employee.getEmail()}'>${employee.getEmail()}</a></li>
                     <li class="list-group-item">${lastRow}</li>
                 </ul>
             </div>    
@@ -99,7 +99,7 @@ function getLastRow(employee) {
         case 'Intern':
             return `School: ${employee.getSchool()}`;
         case 'Engineer':
-            return `GitHub: ${employee.getGithub()}`;    
+            return `GitHub: <a href="https://www.github.com/${employee.getGithub()}" target="_blank">${employee.getGithub()}</a>`;    
     }
 }
 

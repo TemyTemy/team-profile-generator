@@ -1,5 +1,4 @@
 const inquirer = require('inquirer');
-const Manager = require('./lib/Manager');
 const Utility = require('./src/HtmlSnippetGenerator');
 const teamMembers = [];
 const managerQuestions = [{
@@ -7,7 +6,7 @@ const managerQuestions = [{
    name: 'managerName',
    message: 'Enter manager\'s name',
    validate: (name) => {
-                valid = name && name.length > 2;
+                valid = name && name.length >= 2;
                 if (!valid) {
                     return 'An employee name should not be less than 2 letters long';
                 }
