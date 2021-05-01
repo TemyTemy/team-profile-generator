@@ -1,5 +1,6 @@
 const inquirer = require('inquirer');
 const Manager = require('./lib/Manager');
+const Utility = require('./src/HtmlSnippetGenerator');
 const teamMembers = [];
 const managerQuestions = [{
    type: 'input',
@@ -57,19 +58,18 @@ const managerQuestions = [{
  },
   {
     type: 'input',
-    name: 'engineerName',
-    message: 'Enter Engineer\'s name',
-    when: function(option) {
-        return option['memberTypeChoice'] === 'Engineer'
-    }
+    name: 'memberName',
+    message: 'Enter Team Member\'s name'
  },
  {
     type: 'input',
-    name: 'engineerId',
-    message: 'Enter Engineer\'s Id',
-    when: function(option) {
-        return option['memberTypeChoice'] === 'Engineer'
-    }
+    name: 'memberId',
+    message: 'Enter Team Member\'s Id',
+ },
+ {
+    type: 'input',
+    name: 'emailAddress',
+    message: 'Enter Team Member\'s Email Address',    
  },
  {
     type: 'input',
@@ -77,24 +77,6 @@ const managerQuestions = [{
     message: 'Enter Engineer\'s Github user name',
     when: function(option) {
         return option['memberTypeChoice'] === 'Engineer'
-    }
- },
-
- //intern’s name, ID, email, and school
- {
-    type: 'input',
-    name: 'internName',
-    message: 'Enter Intern\'s name',
-    when: function(option) {
-        return option['memberTypeChoice'] === 'Intern'
-    }
- },
- {
-    type: 'input',
-    name: 'internId',
-    message: 'Enter Intern Id',
-    when: function(option) {
-        return option['memberTypeChoice'] === 'Intern'
     }
  },
  {
@@ -114,20 +96,31 @@ const managerQuestions = [{
 ];
 
  function processManagerAnswers(answers) {
-    var manager = new Manager(answers['managerName'], answers['employeeId'],
-                              answers['emailAddress'], answers['officeNumber']);
-
-    addTeamMembers();
+    var manager = Utility.createManagerEmployee(answers);
+    teamMembers.push(manager);
+    addTeamMembers();   
  }
 
  function addTeamMembers() {
     inquirer.prompt(teamMemberQuestion)
     .then((ans) => {
-        teamMembers.push(ans);
+        teamMembers.push(Utility.createEmployeeFromAnswer(ans));
         if (ans['confirmContinue']) {            
             addTeamMembers();
         } else {
-            console.log(teamMembers);
+            const headerText = Utility.createProfileHtmlHeader();
+            const memberCards = Utility.createEmployeeCards(teamMembers);
+            const profileContent = Utility.makeTeamProfileContent(memberCards);
+            const teamProfileText = `
+            <!DOCTYPE html>
+            <html lang="en">
+                ${headerText}
+                    <body>
+                        ${profileContent}
+                    </body>
+            </html>        
+            `;
+            Utility.writeProfileToFile(teamProfileText);
         }
     });
  }
