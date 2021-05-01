@@ -10,7 +10,7 @@ var utility = {
         const cssStyle = loadStyles();
         const headerText = `       
         <head>
-        <title>Bootstrap 4 Example</title>
+        <title>Team Profile</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -78,7 +78,7 @@ function makeEmployeeHtml(employee) {
             <div class="card-header">
                 <p class="name">${employee.getName()}</p>
                 <p class="title">
-                    <i class="fa fa-mug-hot fa-lg" aria-hidden="true">&nbsp;</i>${employee.getRole()}
+                    <i class="fa ${getIcon(employee)} fa-lg" aria-hidden="true">&nbsp;</i>${employee.getRole()}
                 </p>
             </div>
             <div class="card-body">
@@ -100,6 +100,18 @@ function getLastRow(employee) {
             return `School: ${employee.getSchool()}`;
         case 'Engineer':
             return `GitHub: ${employee.getGithub()}`;    
+    }
+}
+
+function getIcon(employee) {
+
+    switch(employee.getRole()) {
+        case 'Manager':
+            return `fa-mug-hot`;
+        case 'Intern':
+            return `fa-user-graduate`;
+        case 'Engineer':
+            return `fa-glasses`;    
     }
 }
 
