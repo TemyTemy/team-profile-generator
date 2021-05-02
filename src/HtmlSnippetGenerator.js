@@ -4,7 +4,7 @@ const Manager = require('../lib/Manager');
 const Intern = require('../lib/Intern');
 const Engineer = require('../lib/Engineer');
 const PROFILE_HTML_FILE_NAME = 'team_profile.html';
-var utility = {
+const utility = {
 
     createProfileHtmlHeader: function() {
         const cssStyle = loadStyles();
@@ -40,17 +40,15 @@ var utility = {
     },
     createEmployeeCards: function(employeeList) {
         var htmlText = '';
-        employeeList.forEach((x) => htmlText += makeEmployeeHtml(x));
+        employeeList.forEach((employee) => htmlText += makeEmployeeHtml(employee));
         return htmlText;
     },
     makeTeamProfileContent: function makeTeamProfileS(memberCards) {
         return `
         <div class="container-fluid">
             <header class="jumbotron"><h1>My Team</h1></header>
-            <div class="row">
-                <div class="col-sm-12 employee">
+            <div class="employee">                
                    ${memberCards}
-                </div>
             </div>
         </div>    
         `;

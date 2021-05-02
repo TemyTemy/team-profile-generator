@@ -1,7 +1,8 @@
 const inquirer = require('inquirer');
 const Utility = require('./src/HtmlSnippetGenerator');
 const teamMembers = [];
-const managerQuestions = [{
+const managerQuestions = [
+    {
    type: 'input',
    name: 'managerName',
    message: 'Enter manager\'s name',
@@ -49,7 +50,8 @@ const managerQuestions = [{
         return true;
     }
  }];
- const teamMemberQuestion = [{
+ const teamMemberQuestion = [
+{
     type: 'list',
     name: 'memberTypeChoice',
     message: 'Do you want to enter an Engineer or an Intern',
