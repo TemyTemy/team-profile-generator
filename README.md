@@ -31,7 +31,7 @@ A command line application that dynamically generates HTML webpage information a
 
 **Image 1**  
 
-![alt text](https://github.com/TemyTemy/readme-generator/blob/main/Assets/Screen%201.PNG)
+![alt text]https://github.com/TemyTemy/team-profile-generator/blob/main/assets/screenshot1.PNG)
 
   
   
@@ -41,7 +41,7 @@ A command line application that dynamically generates HTML webpage information a
   
 **Image 2**
 
-![alt text](https://github.com/TemyTemy/readme-generator/blob/main/Assets/Screen%202.PNG)  
+![alt text](https://github.com/TemyTemy/team-profile-generator/blob/main/assets/screenshot2.PNG)  
 
 
 
