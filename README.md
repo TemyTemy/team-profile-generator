@@ -12,7 +12,8 @@ A command line application that dynamically generates HTML webpage information a
   - Manager's employee id
   - Manager's email address
   - Manager's office number
-  It will then prompt the user to select if they want to enter an intern or an engineer's employee details. For each employee, the application will prompt the user for the following information:
+  - It will then prompt the users to select if they want to enter an intern or an engineer's employee details
+  - For each employee, the application will prompt users for the following information:
   - Team member's name
   - Team member's employee id
   - Team member's email address
@@ -22,7 +23,7 @@ A command line application that dynamically generates HTML webpage information a
      - Github user name
   - A selection to end the program or add more team members
   - This will continue untill the user selects not to add more team members by entering  'n'
-- These details are then used to generate an Html page containing profles for the manager and the added team members
+- The details are then used to generate an Html page containing profles for the manager and the added team members
 
 ## Screenshots
 
