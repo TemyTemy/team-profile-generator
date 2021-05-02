@@ -48,7 +48,7 @@ A command line application that dynamically generates HTML webpage information a
 
 **User Journey Flow**
 
-![alt text](https://github.com/TemyTemy/readme-generator/blob/main/Assets/ReadME%20Generator%20GIF.gif) 
+![alt text](https://github.com/TemyTemy/team-profile-generator/blob/main/assets/team-profile-generator-video.gif) 
 
 ## Links on Github
 
