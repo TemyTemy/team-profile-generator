@@ -2,7 +2,7 @@
 
 A command line application that dynamically generates HTML webpage information about employees in a team based on user's input.
 
-**Technologies Used: Node.js, JavaScript**
+**Technologies Used: HTML5, CSS3, Bootstrap, Node.js, JavaScript**
 
 ## Features
 
