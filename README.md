@@ -31,7 +31,7 @@ A command line application that dynamically generates HTML webpage information a
 
 **Image 1**  
 
-![alt text]https://github.com/TemyTemy/team-profile-generator/blob/main/assets/screenshot1.PNG)
+![alt text](https://github.com/TemyTemy/team-profile-generator/blob/main/assets/screenshot1.PNG)
 
   
   
