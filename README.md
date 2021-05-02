@@ -53,7 +53,7 @@ A command line application that dynamically generates HTML webpage information a
 ## Links on Github
 
 - The source code repository is available at this link: https://github.com/TemyTemy/team-profile-generator
-- The home page to the website is available at this link: 
+- The home page to the website is available at this link: https://drive.google.com/file/d/12efxIpZk07o-hzQZo9RRHJABNpUp2CEm/view
 - 
 ## License
 MIT
